@@ -50,7 +50,7 @@ class TestListOrders:
         response = client.get("/orders/invalid-value/items")
         assert response.status_code == HTTPStatus.UNPROCESSABLE_ENTITY
 
-    def test_obter_itens_quando_identificacao_do_pedido_nao_encontrado_um_erro_deve_ser_retornado(
+    def test_not_found_order_should_return_error(
         self, client, overrides_get_items_by_order
     ):
         overrides_get_items_by_order(OrderNotFoundError())
